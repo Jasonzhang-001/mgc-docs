@@ -1,0 +1,17 @@
+---
+layout: default
+title: "Make a Great Company · 资料"
+---
+
+<h2 class="visually-hidden">文档</h2>
+<ul class="doc-list">
+  {% assign docs = site.data.docs | sort: "date" | reverse %}
+  {% for doc in docs %}
+  <li>
+    <a href="{{ doc.path | relative_url }}">
+      <span class="doc-title">{{ doc.title }}</span>
+      <time datetime="{{ doc.date | date: '%Y-%m-%d' }}">{{ doc.date | date: "%Y-%m-%d" }}</time>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

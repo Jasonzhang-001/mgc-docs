@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title | escape }}</title>
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+</head>
+<body class="layout-{{ page.layout | default: 'default' }}">
+  <a class="skip" href="#content">跳到正文</a>
+  {% unless page.url == "/" %}
+  <header class="site-header">
+    <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  </header>
+  {% endunless %}
+  <main id="content">
+    {% if page.url == "/" %}
+    <h1>{{ site.title }}</h1>
+    {% endif %}
+    {{ content }}
+  </main>
+</body>
+</html>
