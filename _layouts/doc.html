@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="doc">
+  <details class="toc" id="toc-details" hidden>
+    <summary>目录</summary>
+    <nav id="toc" aria-label="目录"></nav>
+  </details>
+  {{ content }}
+  {% if page.source_file %}
+  <p class="source-note"><a href="{{ page.source_file | relative_url }}">Markdown 原文</a></p>
+  {% endif %}
+</article>
+<script src="{{ '/assets/site.js' | relative_url }}"></script>

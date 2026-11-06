@@ -1,0 +1,26 @@
+title: "Make a Great Company · 资料"
+lang: zh-CN
+url: "https://jasonzhang-001.github.io"
+baseurl: "/mgc-docs"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  auto_id_stripping: true
+  syntax_highlighter: none
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+  entity_output: as_char
+  typographic_symbols:
+    hellip: "..."
+    mdash: "---"
+    ndash: "--"
+    laquo: "<<"
+    raquo: ">>"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
