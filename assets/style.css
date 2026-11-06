@@ -90,10 +90,29 @@ p { margin: 0.75rem 0; }
 .layout-doc .doc > p,
 .layout-doc .doc > ul,
 .layout-doc .doc > ol,
+.layout-doc .doc > blockquote,
 .layout-doc .doc > h1,
 .layout-doc .doc > h2,
-.layout-doc .doc > h3 {
+.layout-doc .doc > h3,
+.layout-doc .doc > h4,
+.layout-doc .doc > hr {
   max-width: 40em;
+}
+
+.doc blockquote {
+  margin: 1rem 0;
+  padding: 0.7rem 0.9rem 0.7rem 1rem;
+  border-left: 4px solid #9bb4cc;
+  background: #f6f8fb;
+  overflow-wrap: anywhere;
+}
+
+.doc blockquote p { margin: 0.35rem 0; }
+
+.doc hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2rem 0;
 }
 
 a { color: var(--link); text-underline-offset: 0.15em; }
@@ -102,6 +121,17 @@ a:hover { color: var(--link-hover); }
 ul, ol { padding-left: 1.4em; }
 li { margin: 0.25rem 0; }
 li > ul, li > ol { margin: 0.25rem 0; }
+
+.doc ul:has(> .task-list-item) {
+  list-style: none;
+  padding-left: 0.2em;
+}
+
+.doc .task-list-item-checkbox {
+  margin: 0 0.45rem 0 0;
+  accent-color: var(--link);
+  vertical-align: -0.1em;
+}
 
 code {
   font-family: "WenQuanYi Micro Hei Mono", "Sarasa Mono SC", "Noto Sans Mono CJK SC", ui-monospace, SFMono-Regular, Consolas, monospace;

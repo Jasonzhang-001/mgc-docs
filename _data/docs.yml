@@ -1,7 +1,10 @@
-# 首页列表。新文档加一条即可，页面按 date 从新到旧排列。
+# 首页列表。顺序与本文件一致，当前要看的文档放在最前。
 # title: 显示标题
 # date:  YYYY-MM-DD
 # path:  以 / 开头的站内路径，不含仓库名
+- title: "网球项目全貌 · 常州内容先行 → 变现 V0.4"
+  date: "2026-11-05"
+  path: "/research/tennis-plan-v0.4/"
 - title: "国内球类线下社交/约球 失败案例研究（C 块）V0.2"
   date: "2026-11-06"
   path: "/research/c-failure-cases-v0.2/"

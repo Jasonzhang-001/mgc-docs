@@ -6,7 +6,7 @@ baseurl: "/mgc-docs"
 markdown: kramdown
 kramdown:
   input: GFM
-  hard_wrap: false
+  hard_wrap: true
   auto_ids: true
   auto_id_stripping: true
   syntax_highlighter: none
