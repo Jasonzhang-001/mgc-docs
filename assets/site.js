@@ -12,32 +12,44 @@
 
   var details = document.getElementById("toc-details");
   var toc = document.getElementById("toc");
-  var headings = article.querySelectorAll("h2, h3");
+  var headings = article.querySelectorAll("h2, h3, h4");
   if (!details || !toc || !headings.length) return;
 
   var h1 = article.querySelector("h1");
   if (h1) h1.insertAdjacentElement("afterend", details);
 
+  function childList(item) {
+    var nested = null;
+    for (var c = 0; c < item.children.length; c++) {
+      if (item.children[c].tagName === "UL") nested = item.children[c];
+    }
+    if (!nested) {
+      nested = document.createElement("ul");
+      item.appendChild(nested);
+    }
+    return nested;
+  }
+
   var list = document.createElement("ul");
   headings.forEach(function (heading, index) {
     if (!heading.id) heading.id = "section-" + (index + 1);
-    var level = heading.tagName === "H3" ? 3 : 2;
+    var level = heading.tagName === "H2" ? 2 : heading.tagName === "H3" ? 3 : 4;
     var parent = list;
-    if (level === 3) {
-      var last = list.lastElementChild;
-      if (!last) {
-        last = document.createElement("li");
-        list.appendChild(last);
+    if (level >= 3) {
+      var h2 = list.lastElementChild;
+      if (!h2) {
+        h2 = document.createElement("li");
+        list.appendChild(h2);
       }
-      var nested = null;
-      for (var c = 0; c < last.children.length; c++) {
-        if (last.children[c].tagName === "UL") nested = last.children[c];
+      parent = childList(h2);
+    }
+    if (level >= 4) {
+      var h3 = parent.lastElementChild;
+      if (!h3) {
+        h3 = document.createElement("li");
+        parent.appendChild(h3);
       }
-      if (!nested) {
-        nested = document.createElement("ul");
-        last.appendChild(nested);
-      }
-      parent = nested;
+      parent = childList(h3);
     }
     var item = document.createElement("li");
     var link = document.createElement("a");
